@@ -18,5 +18,7 @@ page = requests.get(url, headers=headers)
 # a test
 print(f"Response Status Code: {page.status_code}")
 
-print(BeautifulSoup(page.text, 'html.parser'))
+soup = BeautifulSoup(page.text, 'html.parser')
+# .prettify adds readability
+print(soup.prettify)
 
