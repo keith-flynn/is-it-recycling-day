@@ -20,5 +20,7 @@ print(f"Response Status Code: {page.status_code}")
 
 soup = BeautifulSoup(page.text, 'html.parser')
 # .prettify adds readability
-print(soup.prettify)
+#print(soup.prettify)
 
+# Here's the meat
+print(soup.find_all('dt', class_ = 'mec-calendar-day'))
