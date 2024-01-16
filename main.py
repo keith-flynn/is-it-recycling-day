@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import pandas as pd
 
 # Headers to mimic a real user's request
 # The website really didn't like me before adding this
@@ -23,4 +24,24 @@ soup = BeautifulSoup(page.text, 'html.parser')
 #print(soup.prettify)
 
 # Here's the meat
-print(soup.find_all('dt', class_ = 'mec-calendar-day'))
+#all_days = soup.find_all('dt', class_ = 'mec-calendar-day')
+
+# Filter days with "Recycling Pick Up" tag
+recycling_days = [day for day in soup.find_all('dt', class_='mec-calendar-day') if day.find('a', string='Recycling Pick Up')]
+
+# DEBUG
+# Print the filtered days
+for day in recycling_days:
+    print(day)
+
+# Add data to Pandas dataframe
+data = []
+
+for day in recycling_days:
+    day_text = day.text.strip()
+    date = day['data-mec-cell']
+    link = day.find('a')['href']
+    data.append({'Day': day_text, 'Date': date, 'Link': link})
+
+df = pd.DataFrame(data)
+print(df)
