@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+from datetime import datetime
 
 # Headers to mimic a real user's request
 # The website really didn't like me before adding this
@@ -35,13 +36,17 @@ for day in recycling_days:
     print(day)
 
 # Add data to Pandas dataframe
-data = []
+recycling_day_info = []
 
 for day in recycling_days:
     day_text = day.text.strip()
-    date = day['data-mec-cell']
-    link = day.find('a')['href']
-    data.append({'Day': day_text, 'Date': date, 'Link': link})
+    date_str = day['data-mec-cell']
 
-df = pd.DataFrame(data)
+    # Convert date string to datetime object
+    date_obj = datetime.strptime(date_str, "%Y%m%d")
+
+    link = day.find('a')['href']
+    recycling_day_info.append({'Date': date_obj, 'Day': day_text, 'Link': link})
+
+df = pd.DataFrame(recycling_day_info)
 print(df)
