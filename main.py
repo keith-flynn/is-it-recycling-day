@@ -21,11 +21,6 @@ page = requests.get(url, headers=headers)
 print(f"Response Status Code: {page.status_code}")
 
 soup = BeautifulSoup(page.text, 'html.parser')
-# .prettify adds readability
-#print(soup.prettify)
-
-# Here's the meat
-#all_days = soup.find_all('dt', class_ = 'mec-calendar-day')
 
 # Filter days with "Recycling Pick Up" tag
 recycling_days = [day for day in soup.find_all('dt', class_='mec-calendar-day') if day.find('a', string='Recycling Pick Up')]
