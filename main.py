@@ -1,3 +1,4 @@
+import sqlite3
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
@@ -45,3 +46,33 @@ for day in recycling_days:
 
 df = pd.DataFrame(recycling_day_info)
 print(df)
+
+# SQLite database file
+db_file = 'recycling_schedule.db'
+
+# Add data to SQLite database
+conn = sqlite3.connect(db_file)
+cursor = conn.cursor()
+
+# Create a table if it doesn't exist
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS recycling_schedule (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        day TEXT,
+        date TEXT,
+        link TEXT
+    )
+''')
+
+# Insert data into the table
+for index, row in df.iterrows():
+    cursor.execute('''
+        INSERT INTO recycling_schedule (day, date, link)
+        VALUES (?, ?, ?)
+    ''', (str(row['Date']), row['Day'], row['Link']))
+
+# Commit changes and close the connection
+conn.commit()
+conn.close()
+
+print("Data added to SQLite database.")
