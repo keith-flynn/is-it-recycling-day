@@ -22,6 +22,7 @@ The plan so far:
   - Set up requirements.txt (DEBUG)
     - pip install requests
     - pip install beautifulsoup4
+    - pip install pandas
 
 ## On the Topic of Waste Removal
 The holiday season and freezing temperatures are enormous obstacles that our waste removal service workers navigate with relatively amazing levels of success. Even without those obstacles, waste removal on a scale necessary for modern society is nothing short of a marvel. This project is a learning experience and in no way a critique those services.

@@ -18,7 +18,7 @@ headers = {
 url = 'https://daytonky.com/calendar-events/'
 page = requests.get(url, headers=headers)
 
-# a test
+# Test the connection
 print(f"Response Status Code: {page.status_code}")
 
 soup = BeautifulSoup(page.text, 'html.parser')
