@@ -24,6 +24,20 @@ The plan so far:
     - pip install beautifulsoup4
     - pip install pandas
 
+## Cron Setup Instructions
+  - In your terminal, type the following command to open the crontab file for editing:
+    - `crontab -e`
+    - If this is the first time you're using cron, you may be prompted to choose an editor. Select your preferred editor (e.g., nano, vim, etc.)
+  - Add your new cron job:
+    - Each line in the crontab file represents a cron job. The syntax is as follows:
+      - `[minute] [hour] [day] [month] [day_of_week] [command_to_be_executed]`
+    - For example, the following line runs a script every day at 2:30 PM:
+      - `30 14 * * * /path/to/your/script.py`
+  - Save and exit
+  - Verify your cron jobs:
+    - List your current cron jobs: `crontab -l`
+  - Enjoy!
+
 ## On the Topic of Waste Removal
 The holiday season and freezing temperatures are enormous obstacles that our waste removal service workers navigate with relatively amazing levels of success. Even without those obstacles, waste removal on a scale necessary for modern society is nothing short of a marvel. This project is a learning experience and in no way a critique those services.
 
