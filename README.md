@@ -23,6 +23,7 @@ The plan so far:
     - pip install requests
     - pip install beautifulsoup4
     - pip install pandas
+    - pip install discord
 
 ## Cron Setup Instructions
   - In your terminal, type the following command to open the crontab file for editing:
