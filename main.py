@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 from datetime import datetime
+from email_sender import EmailSender
 
 # Headers to mimic a real user's request
 # The website really didn't like me before adding this
@@ -76,3 +77,8 @@ conn.commit()
 conn.close()
 
 print("Data added to SQLite database.")
+
+# Check conditions for sending email
+if conditions_met:
+    email_sender = EmailSender()  # Create an instance of EmailSender
+    email_sender.send_email("Recycling Alert", "Don't forget to put out the recycling tomorrow!")
