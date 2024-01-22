@@ -1,5 +1,9 @@
+from dotenv import load_dotenv
 import smtplib
 from email.mime.text import MIMEText
+
+# Load environment variables from .env
+load_dotenv()
 
 def send_email(subject, body):
     sender_email = "your_email@gmail.com"
