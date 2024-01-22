@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+import os
 import smtplib
 from email.mime.text import MIMEText
 
@@ -6,9 +7,9 @@ from email.mime.text import MIMEText
 load_dotenv()
 
 def send_email(subject, body):
-    sender_email = "your_email@gmail.com"
-    receiver_email = "your_email@gmail.com"
-    password = "your_email_password"
+    sender_email = os.environ.get("GMAIL_USER")
+    receiver_email = os.environ.get("GMAIL_RECEIVER")
+    password = os.environ.get("GMAIL_PASSWORD")
 
     message = MIMEText(body)
     message["Subject"] = subject
