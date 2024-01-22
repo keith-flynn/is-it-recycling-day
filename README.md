@@ -24,6 +24,7 @@ The plan so far:
     - pip install beautifulsoup4
     - pip install pandas
     - pip install discord
+    - pip install python-dotenv
 
 ## Cron Setup Instructions
   - In your terminal, type the following command to open the crontab file for editing:
