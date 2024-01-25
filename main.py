@@ -12,6 +12,6 @@ email_sender = EmailSender()
 db_manager = DBManager(email_sender)
 
 # Check conditions for sending email
-# if conditions_met:
-#     email_sender = EmailSender()  # Create an instance of EmailSender
-#     email_sender.send_email("Recycling Alert", "Don't forget to put out the recycling tomorrow!")
+if conditions_met:
+    email_sender = EmailSender()  # Create an instance of EmailSender
+    email_sender.send_email("Recycling Alert", "Don't forget to put out the recycling tomorrow!")
