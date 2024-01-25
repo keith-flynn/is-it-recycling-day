@@ -19,12 +19,15 @@ The plan so far:
     - `.venv\Scripts\activate` (Windows)
     - `source .venv/bin/activate`(Linux/OSX)
 
-  - Set up requirements.txt (DEBUG)
-    - pip install requests
-    - pip install beautifulsoup4
-    - pip install pandas
-    - pip install discord
-    - pip install python-dotenv
+  - Install python packages with requirements.txt
+    - From the root directory of the repository in your CLI:
+      - `pip install -r requirements.txt`
+    - Packages included:
+      - beautifulsoup4
+      - discord
+      - pandas
+      - python-dotenv
+      - requests
 
 ## Cron Setup Instructions
   - In your terminal, type the following command to open the crontab file for editing:
