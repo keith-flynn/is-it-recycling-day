@@ -1,6 +1,6 @@
 import sqlite3
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 from email_sender.email_sender import EmailSender
 
 class DBManager:
@@ -54,6 +54,27 @@ class DBManager:
         conn.close()
 
         print("Data added to SQLite database.")
+
+    def is_recycling_day(self, check_date):
+        # SQLite database file
+        db_file = 'recycling_schedule.db'
+
+        # Connect to the SQLite database
+        conn = sqlite3.connect(db_file)
+        cursor = conn.cursor()
+
+        # Query the database to check if there's a recycling day for the specified date
+        cursor.execute('''
+            SELECT COUNT(*) FROM recycling_schedule
+            WHERE date = ?
+        ''', (str(check_date),))
+
+        count = cursor.fetchone()[0]
+
+        # Close the database connection
+        conn.close()
+
+        return count > 0
 
 # Example usage
 if __name__ == "__main__":

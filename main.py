@@ -18,7 +18,6 @@ today = datetime.now().date()
 # Get the date for the next day
 next_day = today + timedelta(days=1)
 
-# Check conditions for sending email
-if conditions_met:
-    email_sender = EmailSender()  # Create an instance of EmailSender
+# Query the database to check if there's a recycling day for the next day
+if db_manager.is_recycling_day(next_day):
     email_sender.send_email("Recycling Alert", "Don't forget to put out the recycling tomorrow!")
