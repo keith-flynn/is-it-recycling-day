@@ -5,9 +5,9 @@ Scrape my town's website and send myself a reminder to take the can to the curb.
 A particularly erratic holiday season has left me with many questions. The most elusive of them all; *__Is it recycling day today?__*
 
 The plan so far:
-  - **Script for Web Scraping:** Write a Python script that uses Beautiful Soup and Requests to scrape the garbage and recycling days from the city's website. Extract the relevant information and save it to your chosen storage (SQLite database or CSV file).
-  - **Task Scheduling with Cron:** Set up a Cron job to run your Python script at the desired frequency (e.g., weekly or monthly).
-  - **Notification Script:** Write another Python script to read the stored information (from the database or CSV file) and send you an email notification using the smtplib module.
+  - **Script for Web Scraping:** Write a Python script that uses Beautiful Soup and Requests to scrape the garbage and recycling days from the city's website. Extract the relevant information and save it to the chosen storage (SQLite database ~~or CSV file~~).
+  - **Task Scheduling with Cron:** Set up a Cron job to run the Python script at the desired frequency (e.g., weekly or monthly).
+  - **Notification Script:** Write another Python script to read the stored information (from the database or CSV file) and send myself an email notification using the smtplib module.
 
 ## To Run
   - Create the virtual environment
