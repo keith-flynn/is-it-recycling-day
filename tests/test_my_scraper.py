@@ -1,5 +1,5 @@
 import pytest
-from my_scraper import Scraper
+from my_scraper.my_scraper import Scraper
 
 def test_connection():
     scraper = Scraper()
